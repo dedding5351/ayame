@@ -30,6 +30,7 @@ class CardValue(Enum):
     JACK = 'jack'
     QUEEN = 'queen'
     KING = 'king'
+    ACE = 'ace'
     # Default aces to low ace
     LOW_ACE = 'low_ace'
     HIGH_ACE = 'high_ace'
@@ -43,7 +44,7 @@ class CardSuit(Enum):
 
 
 class Card:
-    
+
     value: CardValue
     suit: CardSuit
 
@@ -52,7 +53,14 @@ class Card:
         self.suit = suit
 
     def get_numeric_value(self) -> int:
-        return value_mapping[self.value]
+        return value_mapping[self.value.value]
 
     def to_string(self) -> str:
-        return f"{self.get_numeric_value()} of {self.suit}"
+        # If face card or ace, display name instead of numeric value
+        if self.value not in {CardValue.JACK, CardValue.QUEEN, CardValue.KING, CardValue.ACE, CardValue.LOW_ACE, CardValue.HIGH_ACE}:
+            return f"{self.get_numeric_value()} of {self.suit.value}"
+        
+        if self.value in {CardValue.LOW_ACE, CardValue.HIGH_ACE, CardValue.ACE}:
+            return f"{CardValue.ACE.value} of {self.suit.value}"
+
+        return f"{self.value.value} of {self.suit.value}"
