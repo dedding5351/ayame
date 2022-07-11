@@ -24,8 +24,10 @@ class Deck:
         player.hand.append(self.cards.pop())
         player.get_hand_value(player.hand)
 
+    def stand(self, player):
+        pass
+
     def deal(self, player):
-        player.hand.append(self.cards.pop())
         player.hand.append(self.cards.pop())
         player.get_hand_value(player.hand)
 

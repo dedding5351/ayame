@@ -1,11 +1,11 @@
 from objects.card import Card, CardSuit, CardValue
 
-class Player:
+class Dealer:
 
-    def __init__(self, name):
+    def __init__(self):
         self.hand = []
         self.hand_value = 0
-        self.name = name
+        self.name = "Dealer"
 
     def get_hand_value(self, hand):
         total = 0
@@ -20,6 +20,13 @@ class Player:
 
             total += card.get_numeric_value()       
         self.hand_value = total
+    
+    def hidden_card(self):
+        hand = []
+        hand.append(self.hand[0].to_string())
+        hand.append('??')
+
+        return hand
 
     def get_hand(self):
         hand = []
@@ -30,4 +37,4 @@ class Player:
 
     def reset_hand(self):
         self.hand = []
-        self.hand_value = 0
+        self.hand_value = 0        
