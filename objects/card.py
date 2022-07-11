@@ -13,6 +13,7 @@ value_mapping = {
     'ten': 10,
     'jack': 10,
     'queen': 10,
+    'king': 10,
     'high_ace': 11
 }
 

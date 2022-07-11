@@ -1,9 +1,8 @@
-from card import Card, CardSuit, CardValue
-from player import poor_soul
+from objects.card import Card, CardSuit, CardValue
+from objects.player import  Player
 from collections import deque
 from typing import Deque
 import random
-
 
 class Deck:
     cards: Deque[Card] = deque()
@@ -22,16 +21,15 @@ class Deck:
         random.shuffle(self.cards)
 
     def hit(self, player):
-        player.hand.append(self.cards.pop().value.value)
+        player.hand.append(self.cards.pop())
+        player.get_hand_value(player.hand)
 
     def deal(self, player):
-            player.hand.append(self.cards.pop().value.value)
-            player.hand.append(self.cards.pop().value.value)
-    
-
-    def show_hand(self):
-        print(poor_soul.hand)
+        player.hand.append(self.cards.pop())
+        player.hand.append(self.cards.pop())
+        player.get_hand_value(player.hand)
 
 
+    def show_hand(self, player):
+        print(player.hand)
 
-    
