@@ -5,6 +5,7 @@ class Dealer:
     def __init__(self):
         self.hand = []
         self.hand_value = 0
+        self.status = 'In-Play'
         self.name = "Dealer"
 
     def get_hand_value(self, hand):
@@ -37,4 +38,5 @@ class Dealer:
 
     def reset_hand(self):
         self.hand = []
-        self.hand_value = 0        
+        self.hand_value = 0
+        self.status = 'In-Play'        
