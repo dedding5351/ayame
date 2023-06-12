@@ -1,3 +1,3 @@
 # ayame
 
-Blackjack w/ side of Kotlin
+Blackjack w/ side of Python (We're back)
